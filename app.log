@@ -1,0 +1,11 @@
+{"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:30","msg":"this is info"}
+{"level":"ERROR","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:31","msg":"this is an error"}
+{"level":"WARN","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:32","msg":"this is a warn"}
+{"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:35","msg":"Address: :8080, 测试地址：:8080"}
+{"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:36","msg":"DB Path: /data/app.db"}
+{"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:37","msg":"JWT Secret: my-secret-key"}
+{"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:38","msg":"Log File: app.log"}
+{"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:39","msg":"Max Age: 7"}
+{"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:40","msg":"Max Backups: 5"}
+{"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:41","msg":"Max Size: 10 MB"}
+{"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:42","msg":"Compress: true"}

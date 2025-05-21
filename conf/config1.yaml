@@ -1,0 +1,11 @@
+address: ":8080"
+db_path: "/data/app.db"
+secret: "my-secret-key"
+log_conf:
+  log_file: "app.log"
+  max_age: 7
+  max_backups: 5
+  max_size: 10
+  compress: true
+  log_level: "info"
+  log_type: "json"
