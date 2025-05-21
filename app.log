@@ -9,3 +9,81 @@
 {"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:40","msg":"Max Backups: 5"}
 {"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:41","msg":"Max Size: 10 MB"}
 {"level":"INFO","ts":"2025-05-21 22:02:59","caller":"project-demo/main.go:42","msg":"Compress: true"}
+{"level":"INFO","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:30","msg":"this is info"}
+{"level":"ERROR","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:31","msg":"this is an error"}
+{"level":"WARN","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:32","msg":"this is a warn"}
+{"level":"INFO","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:35","msg":"Address: :8080, 测试地址：:8080"}
+{"level":"INFO","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:36","msg":"DB Path: /data/app.db"}
+{"level":"INFO","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:37","msg":"JWT Secret: my-secret-key"}
+{"level":"INFO","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:38","msg":"Log File: app.log"}
+{"level":"INFO","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:39","msg":"Max Age: 7"}
+{"level":"INFO","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:40","msg":"Max Backups: 5"}
+{"level":"INFO","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:41","msg":"Max Size: 10 MB"}
+{"level":"INFO","ts":"2025-05-22 00:04:30","caller":"project-demo/main.go:42","msg":"Compress: true"}
+{"level":"INFO","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:31","msg":"this is info"}
+{"level":"ERROR","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:32","msg":"this is an error"}
+{"level":"WARN","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:33","msg":"this is a warn"}
+{"level":"INFO","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:36","msg":"Address: :8080, 测试地址：:8080"}
+{"level":"INFO","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:37","msg":"DB Path: /data/app.db"}
+{"level":"INFO","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:38","msg":"JWT Secret: my-secret-key"}
+{"level":"INFO","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:39","msg":"Log File: app.log"}
+{"level":"INFO","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:40","msg":"Max Age: 7"}
+{"level":"INFO","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:41","msg":"Max Backups: 5"}
+{"level":"INFO","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:42","msg":"Max Size: 10 MB"}
+{"level":"INFO","ts":"2025-05-22 00:08:25","caller":"project-demo/main.go:43","msg":"Compress: true"}
+{"level":"INFO","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:30","msg":"this is info"}
+{"level":"ERROR","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:31","msg":"this is an error"}
+{"level":"WARN","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:32","msg":"this is a warn"}
+{"level":"INFO","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:35","msg":"Address: :8080,"}
+{"level":"INFO","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:36","msg":"DB Path: /data/app.db"}
+{"level":"INFO","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:37","msg":"JWT Secret: my-secret-key"}
+{"level":"INFO","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:38","msg":"Log File: app.log"}
+{"level":"INFO","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:39","msg":"Max Age: 7"}
+{"level":"INFO","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:40","msg":"Max Backups: 5"}
+{"level":"INFO","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:41","msg":"Max Size: 10 MB"}
+{"level":"INFO","ts":"2025-05-22 00:11:33","caller":"project-demo/main.go:42","msg":"Compress: true"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:18","msg":"当前服务启动配置========================================>"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:19","msg":"Address: :8080,"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:20","msg":"DB Path: /data/app.db"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:21","msg":"JWT Secret: my-secret-key"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:22","msg":"Log File: app.log"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:23","msg":"Max Age: 7"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:24","msg":"Max Backups: 5"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:25","msg":"Max Size: 10 MB"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:26","msg":"Compress: true"}
+{"level":"INFO","ts":"2025-05-22 00:27:57","caller":"initializa/initZap.go:27","msg":"当前服务配置加载完成========================================>"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:9","msg":"当前服务启动配置========================================>"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:10","msg":"Address: :8080,"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:11","msg":"DB Path: /data/app.db"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:12","msg":"JWT Secret: my-secret-key"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:13","msg":"Log File: app.log"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:14","msg":"Max Age: 7"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:15","msg":"Max Backups: 5"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:16","msg":"Max Size: 10 MB"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:17","msg":"Compress: true"}
+{"level":"INFO","ts":"2025-05-22 00:31:50","caller":"initializa/initPrint.go:18","msg":"当前服务配置加载完成========================================>"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:9","msg":"当前服务启动配置========================================>"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:10","msg":"Address: :8000,"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:11","msg":"DB Path: /data/app.db"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:12","msg":"JWT Secret: my-secret-key"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:13","msg":"Log File: app.log"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:14","msg":"Max Age: 7"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:15","msg":"Max Backups: 5"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:16","msg":"Max Size: 10 MB"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:17","msg":"Compress: true"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"initializa/initPrint.go:18","msg":"当前服务配置加载完成========================================>"}
+{"level":"INFO","ts":"2025-05-22 00:46:30","caller":"project-demo/main.go:49","msg":"启动服务.......,listen: :8000"}
+{"level":"DEBUG","ts":"2025-05-22 00:46:40","caller":"middlewares/requestTime.go:22","msg":"Request Success.......","method":"GET","path":"/slow","status_code":200,"client_ip":"127.0.0.1","cost_time":"1500 ms"}
+{"level":"DEBUG","ts":"2025-05-22 00:46:44","caller":"middlewares/requestTime.go:22","msg":"Request Success.......","method":"GET","path":"/ping","status_code":200,"client_ip":"127.0.0.1","cost_time":"0 ms"}
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:9	当前服务启动配置========================================>
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:10	Address: :8000,
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:11	DB Path: /data/app.db
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:12	JWT Secret: my-secret-key
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:13	Log File: app.log
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:14	Max Age: 7
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:15	Max Backups: 5
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:16	Max Size: 10 MB
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:17	Compress: true
+2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:18	当前服务配置加载完成========================================>
+2025-05-22 00:48:06	[34mINFO[0m	project-demo/main.go:49	启动服务.......,listen: :8000
+2025-05-22 00:48:12	[35mDEBUG[0m	middlewares/requestTime.go:22	Request Success.......	{"method": "GET", "path": "/ping", "status_code": 200, "client_ip": "127.0.0.1", "cost_time": "0 ms"}

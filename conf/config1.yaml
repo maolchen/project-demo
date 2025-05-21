@@ -1,4 +1,4 @@
-address: ":8080"
+address: ":8000"
 db_path: "/data/app.db"
 secret: "my-secret-key"
 log_conf:
@@ -7,5 +7,5 @@ log_conf:
   max_backups: 5
   max_size: 10
   compress: true
-  log_level: "info"
+  log_level: "debug"
   log_type: "json"

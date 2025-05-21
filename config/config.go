@@ -18,3 +18,5 @@ type Conf struct {
 	Secret  string   `yaml:"secret" mapstructure:"secret"`     // JWT密钥
 	LogConf *LogConf `yaml:"log_conf" mapstructure:"log_conf"` // 日志配置
 }
+
+var Cfg = &Conf{}
