@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/maolchen/project_demo/models"
 	. "github.com/maolchen/project_demo/utils/strings"
+	"github.com/maolchen/project_demo/validator"
 )
 
 // 创建用户
@@ -16,6 +17,15 @@ func CreateUser(ctx *gin.Context) (uint, error) {
 	}
 	// 数据校验
 
+	// 校验用户名
+	if err := validator.ValidateUsername(user.Username); err != nil {
+		return 0, err
+	}
+
+	// 校验密码
+	if err := validator.ValidatePassword(user.Password); err != nil {
+		return 0, err
+	}
 	// 数据处理
 	user.HashPass, err = MakeHashPassword(user.Password)
 	if err != nil {

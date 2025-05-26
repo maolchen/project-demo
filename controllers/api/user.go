@@ -9,6 +9,7 @@ import (
 )
 
 // 用户认证登录
+
 func UserAuthenticate(ctx *gin.Context) {
 	var data map[string]string = map[string]string{
 		"username": "chenml",
@@ -29,7 +30,7 @@ func UserCreate(ctx *gin.Context) {
 	if err != nil || id < 1 {
 		ctx.JSON(http.StatusOK, gin.H{
 			"status":  constants.CodeUserfail,
-			"message": constants.CreateUserFail,
+			"message": constants.CreateUserFail + ":" + err.Error(),
 		})
 		return
 	}

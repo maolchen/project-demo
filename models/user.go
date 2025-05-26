@@ -7,9 +7,9 @@ import (
 
 type User struct {
 	gorm.Model
-	Username string `gorm:"unique;comment:'用户名'" json:"username,omitempty"`
+	Username string `gorm:"unique;comment:'用户名'" json:"username" validate:"required,username"`
 	HashPass string `gorm:"not null;size:255;comment:'密码'" json:"-"`
-	Password string `gorm:"-" json:"password,omitempty"`
+	Password string `gorm:"-" json:"password,omitempty" validate:"required,password"` //omitempty 忽略为空
 }
 
 // 设置数据库表名
