@@ -1,5 +1,5 @@
 address: ":8000"
-db_path: "/data/app.db"
+db_path: "app.db"
 secret: "my-secret-key"
 log_conf:
   log_file: "app.log"

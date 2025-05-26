@@ -41,7 +41,7 @@ func parseYamlToCfg() error {
 func getEnvToCfg() error {
 	// 设置环境变量的默认值
 	viper.SetDefault("ADDRESS", ":8000")
-	viper.SetDefault("DB_PATH", "/data/app.db")
+	viper.SetDefault("DB_PATH", ".\\data\\app.db")
 	viper.SetDefault("SECRET", "default_secret_key")
 	viper.SetDefault("LOG_CONF_LOG_FILE", "./app.log")
 	viper.SetDefault("LOG_CONF_MAX_AGE", 7)
