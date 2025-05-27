@@ -1,7 +1,7 @@
 package validator
 
 import (
-	"fmt"
+	"errors"
 	"github.com/maolchen/project_demo/constants"
 	"regexp"
 
@@ -28,7 +28,7 @@ func ValidatePassword(password string) error {
 
 	err := v.Var(password, "password")
 	if err != nil {
-		return fmt.Errorf(constants.UserPassValidatorFail)
+		return errors.New(constants.UserPassValidatorFail)
 	}
 	return nil
 }
@@ -43,7 +43,7 @@ func ValidateUsername(username string) error {
 
 	err := v.Var(username, "username")
 	if err != nil {
-		return fmt.Errorf(constants.UsernameValidatorFail)
+		return errors.New(constants.UsernameValidatorFail)
 	}
 	return nil
 }

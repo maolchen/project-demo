@@ -31,3 +31,8 @@ func MakeHashPassword(RawPassword string) (HashPass string, err error) {
 	HashPass = string(hash)
 	return
 }
+
+// 密码比对
+func CompareHashAndPassword(hashedPassword, password string) bool {
+	return bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password)) == nil
+}

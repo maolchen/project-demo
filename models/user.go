@@ -2,6 +2,7 @@ package models
 
 import (
 	"github.com/maolchen/project_demo/controllers/database"
+	"github.com/maolchen/project_demo/utils/strings"
 	"gorm.io/gorm"
 )
 
@@ -32,9 +33,9 @@ func (user *User) GetOneById(id uint) {
 }
 
 // 根据用户名获取用户信息
-func (user *User) GetOneByUsername(username string) {
+func (user *User) GetOneByUsername(username string) error {
 	db := database.GetDB()
-	db.Where("username = ?", username).First(&user)
+	return db.Where("username = ?", username).First(user).Error
 }
 
 // 获取所有用户信息
@@ -50,4 +51,15 @@ func (user *User) ChangePassword(newHashPass string) {
 	db := database.GetDB()
 	user.HashPass = newHashPass
 	db.Save(&user)
+}
+
+func (user *User) CheckPassword(username string, password string) bool {
+	db := database.GetDB()
+	var dbUser User
+	if err := db.Where("username = ?", username).First(&dbUser).Error; err != nil {
+		return false
+	}
+
+	// 使用 bcrypt 直接比对
+	return strings.CompareHashAndPassword(dbUser.HashPass, password)
 }

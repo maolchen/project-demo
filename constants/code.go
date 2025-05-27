@@ -1,7 +1,7 @@
 package constants
 
 const (
-	CodeSuccess string = "200"
-	//CodeAuthFail string = "400"
-	CodeUserfail string = "4000"
+	CodeSuccess        string = "200"
+	CodeCreateUserfail string = "4000"
+	CodeAuthFail       string = "4001"
 )

@@ -1,10 +1,14 @@
 package constants
 
+//goland:noinspection ALL
 const (
-	AuthSuccess string = "用户认证成功"
-	//AuthFail    string = "用户认证失败"
-	CreateUserSuccess     string = "创建用户成功"
-	CreateUserFail        string = "创建用户失败"
-	UsernameValidatorFail string = "用户名不符合要求，仅支持字母或者字母+数字"
-	UserPassValidatorFail string = "密码不符合要求，至少8位，包含大小写、数字、特殊字符"
+	AuthSuccess           = "用户认证成功"
+	CreateUserSuccess     = "创建用户成功"
+	CreateUserFail        = "创建用户失败"
+	UserPassValidatorFail = "密码校验失败！（至少8位，包含大小写、数字、特殊字符）"
+	UsernameValidatorFail = "用户名校验失败！只能是字母或字母+数字（不能有下划线、符号等）"
+	NoSuchUser            = "用户不存在！"
+	PasswordFail          = "密码错误！"
+	LoginSuccess          = "登录成功"
+	LoginError            = "用户名或密码错误"
 )
