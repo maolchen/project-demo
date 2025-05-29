@@ -3,7 +3,7 @@ package api
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/maolchen/project_demo/constants"
-	"github.com/maolchen/project_demo/controllers/service"
+	"github.com/maolchen/project_demo/service"
 	"github.com/maolchen/project_demo/utils"
 	"net/http"
 	"strconv"

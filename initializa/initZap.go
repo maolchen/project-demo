@@ -2,7 +2,7 @@ package initializa
 
 import (
 	"github.com/maolchen/project_demo/config"
-	logutil "github.com/maolchen/project_demo/utils/logutils"
+	logutil "github.com/maolchen/project_demo/utils"
 	"go.uber.org/zap"
 )
 

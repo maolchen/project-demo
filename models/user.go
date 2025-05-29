@@ -1,8 +1,8 @@
 package models
 
 import (
-	"github.com/maolchen/project_demo/controllers/database"
-	"github.com/maolchen/project_demo/utils/strings"
+	"github.com/maolchen/project_demo/database"
+	"github.com/maolchen/project_demo/utils"
 	"gorm.io/gorm"
 )
 
@@ -61,5 +61,5 @@ func (user *User) CheckPassword(username string, password string) bool {
 	}
 
 	// 使用 bcrypt 直接比对
-	return strings.CompareHashAndPassword(dbUser.HashPass, password)
+	return utils.CompareHashAndPassword(dbUser.HashPass, password)
 }

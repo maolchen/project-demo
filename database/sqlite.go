@@ -3,7 +3,7 @@ package database
 import (
 	"github.com/glebarez/sqlite"
 	"github.com/maolchen/project_demo/config"
-	"github.com/maolchen/project_demo/utils/dirExists"
+	"github.com/maolchen/project_demo/utils"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
 )
@@ -12,7 +12,7 @@ var db *gorm.DB
 
 // InitORM 初始化 ORM 并连接数据库，应该在应用启动时调用一次
 func InitORM(cfg *config.Conf) error {
-	if err := dirExists.EnsureDirExists(cfg.DbPath); err != nil {
+	if err := utils.EnsureDirExists(cfg.DbPath); err != nil {
 		return err
 	}
 	var err error

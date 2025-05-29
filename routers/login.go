@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/maolchen/project_demo/controllers/api"
+	"github.com/maolchen/project_demo/api"
 )
 
 func InitAuthRouter(r *gin.RouterGroup) {

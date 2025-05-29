@@ -1,4 +1,4 @@
-package strings
+package utils
 
 import (
 	"github.com/maolchen/project_demo/constants"

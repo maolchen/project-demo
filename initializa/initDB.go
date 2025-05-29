@@ -2,7 +2,7 @@ package initializa
 
 import (
 	"github.com/maolchen/project_demo/config"
-	"github.com/maolchen/project_demo/controllers/database"
+	"github.com/maolchen/project_demo/database"
 	"github.com/maolchen/project_demo/models"
 	"go.uber.org/zap"
 )

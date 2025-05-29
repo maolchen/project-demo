@@ -1,9 +1,8 @@
-package logutil
+package utils
 
 import (
 	"fmt"
 	"github.com/maolchen/project_demo/config"
-	"github.com/maolchen/project_demo/utils/dirExists"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
@@ -34,7 +33,7 @@ func NewZapLogger(cfg *config.LogConf) *zap.Logger {
 	// 判断是写控制台还是写日志文件
 	if cfg.LogFile != "" {
 		fmt.Println("LogFile:", cfg.LogFile)
-		if err := dirExists.EnsureDirExists(cfg.LogFile); err != nil {
+		if err := EnsureDirExists(cfg.LogFile); err != nil {
 			zap.L().Error("找不到目录", zap.Error(err))
 		}
 		//写文件 ，判断是写json格式还是普通格式
