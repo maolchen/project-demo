@@ -55,8 +55,6 @@ func (j *JWT) ParseToken(tokenString string) (*PublicClaims, error) {
 	})
 	if err != nil {
 		switch {
-		case !token.Valid:
-			return nil, errors.New(constants.TokenInvalid)
 		case errors.Is(err, jwt.ErrTokenMalformed):
 			return nil, errors.New(constants.TokenMalformed)
 		case errors.Is(err, jwt.ErrTokenSignatureInvalid):

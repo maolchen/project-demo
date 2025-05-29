@@ -7,5 +7,5 @@ import (
 
 func InitUserRouter(r *gin.RouterGroup) {
 	r.POST("/user/create", api.UserCreate)
-	r.POST("/user/login", api.Login)
+
 }

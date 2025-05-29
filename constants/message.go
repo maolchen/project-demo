@@ -16,4 +16,5 @@ const (
 	TokenMalformed        = "token格式错误"
 	TokenSignatureInvalid = "token签名无效"
 	TokenParasError       = "token解析失败"
+	TokenValid            = "token验证通过"
 )
