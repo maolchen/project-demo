@@ -11,4 +11,9 @@ const (
 	PasswordFail          = "密码错误！"
 	LoginSuccess          = "登录成功"
 	LoginError            = "用户名或密码错误"
+	TokenExpired          = "token已过期"
+	TokenInvalid          = "无效的token"
+	TokenMalformed        = "token格式错误"
+	TokenSignatureInvalid = "token签名无效"
+	TokenParasError       = "token解析失败"
 )

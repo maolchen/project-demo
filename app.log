@@ -87,3 +87,30 @@
 2025-05-22 00:48:06	[34mINFO[0m	initializa/initPrint.go:18	当前服务配置加载完成========================================>
 2025-05-22 00:48:06	[34mINFO[0m	project-demo/main.go:49	启动服务.......,listen: :8000
 2025-05-22 00:48:12	[35mDEBUG[0m	middlewares/requestTime.go:22	Request Success.......	{"method": "GET", "path": "/ping", "status_code": 200, "client_ip": "127.0.0.1", "cost_time": "0 ms"}
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:9	当前服务启动配置========================================>
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:10	Address: :8000,
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:11	DB Path: .\data\app.db
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:12	JWT Secret: default_secret_key
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:13	Log File: ./app.log
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:14	Max Age: 7
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:15	Max Backups: 5
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:16	Max Size: 10 MB
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:17	Compress: true
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initPrint.go:18	当前服务配置加载完成========================================>
+2025-05-29 22:17:18	[34mINFO[0m	database/sqlite.go:34	数据库连接成功	{"db_path": ".\\data\\app.db"}
+2025-05-29 22:17:18	[34mINFO[0m	initializa/initDB.go:22	初始化表结构完成
+2025-05-29 22:17:18	[34mINFO[0m	project-demo/main.go:55	启动服务.......,listen: :8000
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:9	当前服务启动配置========================================>
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:10	Address: :8000,
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:11	DB Path: .\data\app.db
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:12	JWT Secret: default_secret_key
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:13	JWT Exp: %!s(int64=30)
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:14	Log File: app.log
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:15	Max Age: 7
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:16	Max Backups: 5
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:17	Max Size: 10 MB
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:18	Compress: true
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initPrint.go:19	当前服务配置加载完成========================================>
+2025-05-29 22:26:50	[34mINFO[0m	database/sqlite.go:34	数据库连接成功	{"db_path": ".\\data\\app.db"}
+2025-05-29 22:26:50	[34mINFO[0m	initializa/initDB.go:22	初始化表结构完成
+2025-05-29 22:26:50	[34mINFO[0m	project-demo/main.go:55	启动服务.......,listen: :8000

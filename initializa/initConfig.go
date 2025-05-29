@@ -43,20 +43,22 @@ func getEnvToCfg() error {
 	viper.SetDefault("ADDRESS", ":8000")
 	viper.SetDefault("DB_PATH", ".\\data\\app.db")
 	viper.SetDefault("SECRET", "default_secret_key")
-	viper.SetDefault("LOG_CONF_LOG_FILE", "./app.log")
+	viper.SetDefault("LOG_CONF_LOG_FILE", "")
 	viper.SetDefault("LOG_CONF_MAX_AGE", 7)
 	viper.SetDefault("LOG_CONF_MAX_BACKUPS", 5)
 	viper.SetDefault("LOG_CONF_MAX_SIZE", 10)
 	viper.SetDefault("LOG_CONF_COMPRESS", true)
 	viper.SetDefault("LOG_CONF_LOG_LEVEL", "debug")
 	viper.SetDefault("LOG_CONF_LOG_TYPE", "text")
+	viper.SetDefault("JWT_EXPIRES", 30)
 
-	config.Cfg.Address = viper.GetString("address")
-	config.Cfg.DbPath = viper.GetString("db_path")
-	config.Cfg.Secret = viper.GetString("secret")
+	config.Cfg.Address = viper.GetString("ADDRESS")
+	config.Cfg.DbPath = viper.GetString("DB_PATH")
+	config.Cfg.Secret = viper.GetString("SECRET")
+	config.Cfg.JwtExpires = viper.GetInt64("JWT_EXPIRES")
 
 	logConf := &config.LogConf{
-		LogFile:    viper.GetString("LOG_CONF.log_file"),
+		LogFile:    viper.GetString("LOG_CONF_LOG_FILE"),
 		MaxAge:     viper.GetInt("LOG_CONF_MAX_AGE"),
 		MaxBackups: viper.GetInt("LOG_CONF_MAX_BACKUPS"),
 		MaxSize:    viper.GetInt("LOG_CONF_MAX_SIZE"),

@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/maolchen/project_demo/constants"
 	"github.com/maolchen/project_demo/controllers/service"
+	"github.com/maolchen/project_demo/utils"
 	"net/http"
 	"strconv"
 )
@@ -18,11 +19,22 @@ func Login(ctx *gin.Context) {
 		})
 		return
 	}
+
+	// 生成token
+	newJwt := utils.NewJWT()
+
+	token, err := newJwt.AccessToken(user.Username)
+	if err != nil {
+		ctx.JSON(http.StatusUnauthorized, gin.H{
+			"status":  constants.CodeAuthFail,
+			"message": err.Error(),
+		})
+	}
 	ctx.JSON(http.StatusOK, gin.H{
 		"status":  constants.CodeSuccess,
 		"message": constants.LoginSuccess,
 		"data": gin.H{
-			"username": user.Username,
+			"token": token,
 		},
 	})
 }

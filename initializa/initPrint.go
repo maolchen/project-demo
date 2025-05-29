@@ -10,6 +10,7 @@ func PrintConfig() {
 	zap.S().Infof("Address: %s,", config.Cfg.Address)
 	zap.S().Infof("DB Path: %s", config.Cfg.DbPath)
 	zap.S().Infof("JWT Secret: %s", config.Cfg.Secret)
+	zap.S().Infof("JWT Exp: %s", config.Cfg.JwtExpires)
 	zap.S().Infof("Log File: %s", config.Cfg.LogConf.LogFile)
 	zap.S().Infof("Max Age: %d", config.Cfg.LogConf.MaxAge)
 	zap.S().Infof("Max Backups: %d", config.Cfg.LogConf.MaxBackups)

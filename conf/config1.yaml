@@ -1,6 +1,7 @@
 address: ":8000"
-db_path: "app.db"
+db_path: ".\\data\\app.db"
 secret: "my-secret-key"
+jwt_expires: 30 #分钟
 log_conf:
   log_file: "app.log"
   max_age: 7
