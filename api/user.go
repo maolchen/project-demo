@@ -39,17 +39,17 @@ func Login(ctx *gin.Context) {
 	})
 }
 
-func UserAuthenticate(ctx *gin.Context) {
-	var data map[string]string = map[string]string{
-		"username": "chenml",
-		"password": "111",
-	}
-	ctx.JSON(http.StatusOK, gin.H{
-		"status":  constants.CodeSuccess,
-		"message": constants.AuthSuccess,
-		"data":    data,
-	})
-}
+//func UserAuthenticate(ctx *gin.Context) {
+//	var data map[string]string = map[string]string{
+//		"username": "chenml",
+//		"password": "111",
+//	}
+//	ctx.JSON(http.StatusOK, gin.H{
+//		"status":  constants.CodeSuccess,
+//		"message": constants.AuthSuccess,
+//		"data":    data,
+//	})
+//}
 
 func UserCreate(ctx *gin.Context) {
 	var data map[string]string = map[string]string{

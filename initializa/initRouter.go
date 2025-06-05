@@ -17,6 +17,7 @@ func InitRouter() *gin.Engine {
 	ApiGroup := Router.Group("/api")
 	InitAuthRouter(ApiGroup)
 	InitUserRouter(ApiGroup)
+	InitClusterRouter(ApiGroup)
 	return Router
 
 }
