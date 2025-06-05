@@ -2,9 +2,9 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/maolchen/project_demo/constants"
-	"github.com/maolchen/project_demo/service"
-	"github.com/maolchen/project_demo/utils"
+	"github.com/maolchen/krm-backend/constants"
+	"github.com/maolchen/krm-backend/service"
+	"github.com/maolchen/krm-backend/utils"
 	"net/http"
 	"strconv"
 )

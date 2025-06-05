@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/maolchen/project_demo/constants"
+	"github.com/maolchen/krm-backend/constants"
 	"golang.org/x/crypto/bcrypt"
 )
 

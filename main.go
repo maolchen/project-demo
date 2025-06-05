@@ -3,12 +3,12 @@ package main
 import (
 	"flag"
 	"github.com/gin-gonic/gin"
-	"github.com/maolchen/project_demo/config"
+	"github.com/maolchen/krm-backend/config"
 	"go.uber.org/zap"
 	"log"
 	"time"
 
-	"github.com/maolchen/project_demo/initializa"
+	"github.com/maolchen/krm-backend/initializa"
 )
 
 func init() {

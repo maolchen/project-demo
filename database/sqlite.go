@@ -2,8 +2,8 @@ package database
 
 import (
 	"github.com/glebarez/sqlite"
-	"github.com/maolchen/project_demo/config"
-	"github.com/maolchen/project_demo/utils"
+	"github.com/maolchen/krm-backend/config"
+	"github.com/maolchen/krm-backend/utils"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
 )

@@ -3,8 +3,8 @@ package utils
 import (
 	"errors"
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/maolchen/project_demo/config"
-	"github.com/maolchen/project_demo/constants"
+	"github.com/maolchen/krm-backend/config"
+	"github.com/maolchen/krm-backend/constants"
 	"time"
 )
 

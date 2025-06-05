@@ -2,7 +2,7 @@ package validator
 
 import (
 	"errors"
-	"github.com/maolchen/project_demo/constants"
+	"github.com/maolchen/krm-backend/constants"
 	"regexp"
 
 	"github.com/go-playground/validator/v10"

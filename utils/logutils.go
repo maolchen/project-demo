@@ -2,7 +2,7 @@ package utils
 
 import (
 	"fmt"
-	"github.com/maolchen/project_demo/config"
+	"github.com/maolchen/krm-backend/config"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"

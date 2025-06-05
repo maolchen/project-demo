@@ -1,7 +1,7 @@
 package initializa
 
 import (
-	"github.com/maolchen/project_demo/config"
+	"github.com/maolchen/krm-backend/config"
 	"go.uber.org/zap"
 )
 

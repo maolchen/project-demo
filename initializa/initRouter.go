@@ -2,8 +2,8 @@ package initializa
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/maolchen/project_demo/middlewares"
-	. "github.com/maolchen/project_demo/routers"
+	"github.com/maolchen/krm-backend/middlewares"
+	. "github.com/maolchen/krm-backend/routers"
 )
 
 func InitRouter() *gin.Engine {

@@ -2,9 +2,9 @@ package service
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/maolchen/project_demo/models"
-	. "github.com/maolchen/project_demo/utils"
-	"github.com/maolchen/project_demo/validator"
+	"github.com/maolchen/krm-backend/models"
+	. "github.com/maolchen/krm-backend/utils"
+	"github.com/maolchen/krm-backend/validator"
 )
 
 // 创建用户

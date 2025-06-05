@@ -3,9 +3,9 @@ package service
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
-	"github.com/maolchen/project_demo/constants"
-	"github.com/maolchen/project_demo/models"
-	"github.com/maolchen/project_demo/validator"
+	"github.com/maolchen/krm-backend/constants"
+	"github.com/maolchen/krm-backend/models"
+	"github.com/maolchen/krm-backend/validator"
 	"gorm.io/gorm"
 )
 

@@ -1,4 +1,4 @@
-module github.com/maolchen/project_demo
+module github.com/maolchen/krm-backend
 
 go 1.23.0
 

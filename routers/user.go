@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/maolchen/project_demo/api"
+	"github.com/maolchen/krm-backend/api"
 )
 
 func InitUserRouter(r *gin.RouterGroup) {

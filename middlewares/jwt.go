@@ -2,8 +2,8 @@ package middlewares
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/maolchen/project_demo/constants"
-	"github.com/maolchen/project_demo/utils"
+	"github.com/maolchen/krm-backend/constants"
+	"github.com/maolchen/krm-backend/utils"
 	"go.uber.org/zap"
 	"net/http"
 )

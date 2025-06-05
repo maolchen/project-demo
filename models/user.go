@@ -1,8 +1,8 @@
 package models
 
 import (
-	"github.com/maolchen/project_demo/database"
-	"github.com/maolchen/project_demo/utils"
+	"github.com/maolchen/krm-backend/database"
+	"github.com/maolchen/krm-backend/utils"
 	"gorm.io/gorm"
 )
 

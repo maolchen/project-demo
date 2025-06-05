@@ -1,7 +1,7 @@
 package initializa
 
 import (
-	"github.com/maolchen/project_demo/config"
+	"github.com/maolchen/krm-backend/config"
 	"github.com/spf13/viper"
 	"log"
 )
@@ -39,6 +39,8 @@ func parseYamlToCfg() error {
 
 // getEnvToCfg 从环境变量中获取配置并赋值给结构体，并设置默认值
 func getEnvToCfg() error {
+	// 启用自动从环境变量读取
+	viper.AutomaticEnv()
 	// 设置环境变量的默认值
 	viper.SetDefault("ADDRESS", ":8000")
 	viper.SetDefault("DB_PATH", ".\\data\\app.db")
