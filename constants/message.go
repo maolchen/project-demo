@@ -17,4 +17,7 @@ const (
 	TokenSignatureInvalid = "token签名无效"
 	TokenParasError       = "token解析失败"
 	TokenValid            = "token验证通过"
+	ClusterSuccess        = "集群操作成功"
+	ClusterFail           = "集群操作失败"
+	RequestParmsError     = "请求参数错误"
 )

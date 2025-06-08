@@ -38,7 +38,7 @@ func InitORM(cfg *config.Conf) error {
 // GetDB 返回已初始化的数据库实例，各模块可以通过此方法获取 db 进行操作
 func GetDB() *gorm.DB {
 	if db == nil {
-		zap.L().Fatal("数据库尚未初始化，请先调用 InitORM")
+		zap.L().Error("数据库尚未初始化，请先调用 InitORM")
 	}
 	return db
 }
