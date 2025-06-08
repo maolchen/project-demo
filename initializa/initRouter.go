@@ -11,7 +11,7 @@ func InitRouter() *gin.Engine {
 	Router := gin.Default()
 
 	// 使用中间件
-	Router.Use(middlewares.RequestTimeMiddleware())
+	Router.Use(middlewares.LoggerMiddleware())
 	Router.Use(middlewares.AuthMiddleware())
 
 	ApiGroup := Router.Group("/api")
