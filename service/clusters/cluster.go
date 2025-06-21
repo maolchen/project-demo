@@ -1,42 +1,89 @@
 package clusters
 
 import (
-	"encoding/base64"
-	"errors"
 	"github.com/maolchen/krm-backend/config"
 	"github.com/maolchen/krm-backend/models"
-	"github.com/maolchen/krm-backend/utils"
 	"go.uber.org/zap"
 )
 
-func AddCluster(cluster *models.ClusterInfo) error {
-	zap.S().Info("添加集群...")
+var AddCluster = WithLog("AddCluster", addClusterImpl)
+var UpdateClusterByName = WithLog("UpdateClusterByName", updateClusterByNameImpl)
+var DeleteClusterByName = WithNameLog("DeleteClusterByName", deleteClusterByNameImpl)
 
-	// base64解码kubeconfig
-	zap.S().Debug("cluster.Kubeconfig::::", cluster.Kubeconfig)
-	kubeconfig, err := base64.StdEncoding.DecodeString(cluster.Kubeconfig)
+func addClusterImpl(c *models.ClusterInfo) error {
+	kubeconfig, err := DecodeAndValidateKubeconfig(c.Kubeconfig)
 	if err != nil {
-		zap.L().Error("kubeconfig 解码失败", zap.Error(err))
 		return err
 	}
-	zap.S().Debug("kubeconfig:::::", string(kubeconfig))
-
-	//校验kubeconfig
-
-	if err := utils.ValidateKubeconfig(kubeconfig); err != nil {
-		zap.L().Error("kubeconfig 校验失败", zap.Error(err))
-		return err
-	}
-
-	//存储kubeconfig到内存中
-	config.ClusterKubeconfig[cluster.Name] = kubeconfig
-
-	zap.S().Debugf("当前存储的集群有：%s", utils.PrintClusterKubeconfig(config.ClusterKubeconfig))
-
-	//数据库插入
-	return cluster.Insert()
+	config.SetKubeconfig(c.Name, kubeconfig)
+	return c.Insert()
 }
 
+func deleteClusterByNameImpl(name string) error {
+	delete(config.ClusterKubeconfig, name)
+	zap.S().Debugf("删除%s集群，当前存储的集群有：%s", name, config.PrintClusterKubeconfig(config.ClusterKubeconfig))
+	return models.DeleteByName(&models.ClusterInfo{}, name)
+}
+
+func updateClusterByNameImpl(c *models.ClusterInfo) error {
+	updates := map[string]interface{}{}
+	if c.Label != nil {
+		updates["label"] = *c.Label
+	}
+
+	if c.Kubeconfig != "" {
+		kubeconfig, err := DecodeAndValidateKubeconfig(c.Kubeconfig)
+		if err != nil {
+			return err
+		}
+		config.SetKubeconfig(c.Name, kubeconfig)
+		updates["kubeconfig"] = c.Kubeconfig
+	}
+
+	return c.Update(c.Name, updates)
+}
+
+func ListClusters() ([]models.ClusterStatus, error) {
+	clusters, err := models.GetAllClusters()
+	if err != nil {
+		return nil, err
+	}
+
+	return GetClusterStatuses(clusters)
+}
+
+func GetClusterEditByName(name string) (models.ClusterStatus, error) {
+	return GetClusterStatusByName(name)
+}
+
+/*
+	func AddCluster(cluster *models.ClusterInfo) error {
+		zap.S().Info("添加集群...")
+
+		// base64解码kubeconfig
+		zap.S().Debug("cluster.Kubeconfig::::", cluster.Kubeconfig)
+		kubeconfig, err := base64.StdEncoding.DecodeString(cluster.Kubeconfig)
+		if err != nil {
+			zap.L().Error("kubeconfig 解码失败", zap.Error(err))
+			return err
+		}
+		zap.S().Debug("kubeconfig:::::", string(kubeconfig))
+
+		//校验kubeconfig
+
+		if err := utils.ValidateKubeconfig(kubeconfig); err != nil {
+			zap.L().Error("kubeconfig 校验失败", zap.Error(err))
+			return err
+		}
+
+		//存储kubeconfig到内存中
+		config.ClusterKubeconfig[cluster.Name] = kubeconfig
+
+		zap.S().Debugf("当前存储的集群有：%s", utils.PrintClusterKubeconfig(config.ClusterKubeconfig))
+
+		//数据库插入
+		return cluster.Insert()
+	}
 func DeleteCluster(cluster *models.ClusterInfo) error {
 	zap.S().Info("删除集群...")
 
@@ -50,6 +97,8 @@ func DeleteCluster(cluster *models.ClusterInfo) error {
 	//删除数据库中的数据
 	return cluster.Delete(cluster.Name)
 }
+
+
 
 func UpdateClusterByName(cluster *models.ClusterInfo) error {
 	zap.S().Info("更新集群...")
@@ -117,3 +166,4 @@ func GetClusterEditByName(cluster *models.ClusterInfo) (res models.ClusterStatus
 
 	return clusterStatus, nil
 }
+*/

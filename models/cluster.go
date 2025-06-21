@@ -1,11 +1,7 @@
 package models
 
 import (
-	"errors"
-	"fmt"
 	"github.com/maolchen/krm-backend/database"
-	"github.com/maolchen/krm-backend/service/common"
-	"go.uber.org/zap"
 	"gorm.io/gorm"
 )
 
@@ -36,42 +32,36 @@ func (c *ClusterInfo) Insert() error {
 	return database.GetDB().Create(c).Error
 }
 
-// 更新集群
-func (c *ClusterInfo) Update(name string, updates map[string]interface{}) error {
-	//delete(updates, "name") // 禁止修改 Name
-	return database.GetDB().
-		Model(c).
-		Where("name = ?", name).
-		Updates(updates).Error
-}
-
 // 删除集群
 func (c *ClusterInfo) Delete(name string) error {
-	db := database.GetDB().Unscoped().Where("name = ?", name).Delete(&ClusterInfo{})
-	if db.Error != nil {
-		return db.Error
-	}
-
-	if db.RowsAffected == 0 {
-		return errors.New("集群不存在或已被删除")
-	}
-
-	return nil
+	return DeleteByName(c, name)
 }
 
-// 获取集群byName
-func (c *ClusterInfo) GetByName(name string) (ClusterResponse, error) {
-
-	db := database.GetDB()
-	if err := db.Where("name = ?", name).First(&c).Error; err != nil {
-		return ClusterResponse{}, err
-	}
-
-	return ClusterResponse{
-		Name:  c.Name,
-		Label: c.Label,
-	}, nil
+// 更新集群
+func (c *ClusterInfo) Update(name string, updates map[string]interface{}) error {
+	return UpdateByName(c, name, updates)
 }
+
+//func (c *ClusterInfo) Update(name string, updates map[string]interface{}) error {
+//	//delete(updates, "name") // 禁止修改 Name
+//	return database.GetDB().
+//		Model(c).
+//		Where("name = ?", name).
+//		Updates(updates).Error
+//}
+
+//func (c *ClusterInfo) Delete(name string) error {
+//	db := database.GetDB().Unscoped().Where("name = ?", name).Delete(&ClusterInfo{})
+//	if db.Error != nil {
+//		return db.Error
+//	}
+//
+//	if db.RowsAffected == 0 {
+//		return errors.New("集群不存在或已被删除")
+//	}
+//
+//	return nil
+//}
 
 // 获取所有集群
 func GetAllClusters() ([]ClusterInfo, error) {
@@ -83,31 +73,15 @@ func GetAllClusters() ([]ClusterInfo, error) {
 	return clusters, nil
 }
 
-// 获取集群状态
-func (c *ClusterInfo) GetClusterStatus(kubconfig []byte) (ClusterStatus, error) {
-	clusterStatus := ClusterStatus{
-		ClusterResponse: ClusterResponse{
-			Name:  c.Name,
-			Label: c.Label,
-		},
-		Status: "inactive",
+// 查询单个集群信息
+func (c *ClusterInfo) GetByName(name string) (ClusterResponse, error) {
+	db := database.GetDB()
+	if err := db.Where("name = ?", name).First(&c).Error; err != nil {
+		return ClusterResponse{}, err
 	}
 
-	clientset, err := common.NewClientSet(kubconfig)
-	if err != nil {
-		return clusterStatus, err
-	}
-	// 获取集群版本
-	serverVersion, err := clientset.Discovery().ServerVersion()
-	if err != nil {
-		return clusterStatus, fmt.Errorf("无法访问集群，请检查权限或网络: %v", err)
-	}
-
-	//
-	zap.S().Infof("Successfully connected to clusters,当前集群版本%s", serverVersion.String())
-	clusterStatus.Version = serverVersion.String()
-	clusterStatus.Status = "active"
-
-	zap.S().Debugf("当前集群状态：%s", clusterStatus)
-	return clusterStatus, nil
+	return ClusterResponse{
+		Name:  c.Name,
+		Label: c.Label,
+	}, nil
 }

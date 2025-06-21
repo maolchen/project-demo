@@ -1,5 +1,10 @@
 package config
 
+import (
+	"fmt"
+	"go.uber.org/zap"
+)
+
 // LogConf 日志相关配置
 type LogConf struct {
 	LogFile    string `yaml:"log_file"`
@@ -22,3 +27,16 @@ type Conf struct {
 
 var Cfg = &Conf{}
 var ClusterKubeconfig map[string][]byte
+
+func SetKubeconfig(name string, data []byte) {
+	ClusterKubeconfig[name] = data
+	zap.S().Debugf("当前存储的集群有：%s", PrintClusterKubeconfig(ClusterKubeconfig))
+}
+
+func PrintClusterKubeconfig(kubeconfigs map[string][]byte) string {
+	var result string
+	for name := range kubeconfigs {
+		result += fmt.Sprintf("%s ", name)
+	}
+	return result
+}
