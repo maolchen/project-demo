@@ -10,7 +10,7 @@ import (
 func BindJSON(ctx *gin.Context, obj interface{}) bool {
 	if err := ctx.ShouldBindJSON(obj); err != nil {
 		Error(http.StatusBadRequest, constants.RequestParmsError).Send(ctx)
-		zap.S().Errorf("获取参数失败---->%s", err.Error())
+		zap.S().Errorf("解析参数失败---->%s", err.Error())
 		return false
 	}
 	return true
@@ -19,8 +19,9 @@ func BindJSON(ctx *gin.Context, obj interface{}) bool {
 func BindQuery(ctx *gin.Context, obj interface{}) bool {
 	if err := ctx.ShouldBindQuery(obj); err != nil {
 		Error(http.StatusBadRequest, constants.RequestParmsError).Send(ctx)
-		zap.S().Errorf("获取参数失败---->%s", err.Error())
+		zap.S().Errorf("解析参数失败---->%s", err.Error())
 		return false
 	}
+	//fmt.Print("BindQuery", obj)
 	return true
 }
