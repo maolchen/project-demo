@@ -36,3 +36,12 @@ func MakeHashPassword(RawPassword string) (HashPass string, err error) {
 func CompareHashAndPassword(hashedPassword, password string) bool {
 	return bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password)) == nil
 }
+
+// 处理ClusterKubeconfig日志打印
+func PrintClusterKubeconfig(kubeconfig map[string][]byte) map[string]string {
+	result := make(map[string]string, len(kubeconfig))
+	for k, v := range kubeconfig {
+		result[k] = string(v)
+	}
+	return result
+}

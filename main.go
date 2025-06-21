@@ -4,6 +4,7 @@ import (
 	"flag"
 	"github.com/gin-gonic/gin"
 	"github.com/maolchen/krm-backend/config"
+	"github.com/maolchen/krm-backend/utils"
 	"go.uber.org/zap"
 	"log"
 	"time"
@@ -49,6 +50,11 @@ func main() {
 	//})
 	//
 	//r.GET("/slow", SlowHandler)
+
+	// 初始化全局ClusterKubeconfig
+	config.ClusterKubeconfig = map[string][]byte{}
+	initializa.InitClusterKubeconfig()
+	zap.S().Debug("全局ClusterKubeconfig:", utils.PrintClusterKubeconfig(config.ClusterKubeconfig))
 
 	r := initializa.InitRouter()
 

@@ -9,15 +9,38 @@ import (
 type Response struct {
 	Status  int         `json:"status"`
 	Message string      `json:"message"`
-	Data    interface{} `json:"data,omitempty"` // 使用omitempty避免返回空对象
+	Data    interface{} `json:"data,omitempty"` // omitempty 避免空值
 }
 
-// SuccessWithData 返回带有数据的成功响应
-func SuccessWithData(message string, data interface{}) *Response {
+// DataItem 单个对象结构
+type DataItem struct {
+	Item interface{} `json:"item"`
+}
+
+// DataItems 列表结构
+type DataItems struct {
+	Items interface{} `json:"items"`
+}
+
+// SuccessWithItem 返回单个对象
+func SuccessWithItem(message string, item interface{}) *Response {
 	return &Response{
 		Status:  http.StatusOK,
 		Message: message,
-		Data:    data,
+		Data: DataItem{
+			Item: item,
+		},
+	}
+}
+
+// SuccessWithItems 返回多个对象
+func SuccessWithItems(message string, items interface{}) *Response {
+	return &Response{
+		Status:  http.StatusOK,
+		Message: message,
+		Data: DataItems{
+			Items: items,
+		},
 	}
 }
 

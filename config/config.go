@@ -21,3 +21,4 @@ type Conf struct {
 }
 
 var Cfg = &Conf{}
+var ClusterKubeconfig map[string][]byte

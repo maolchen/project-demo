@@ -6,9 +6,9 @@ import (
 )
 
 func InitClusterRouter(r *gin.RouterGroup) {
-	r.POST("/cluster/delete/:name", api.ClusterDelete)
+	r.GET("/cluster/delete", api.ClusterDelete)
 	r.GET("/cluster/list", api.ClusterList)
-	r.POST("/cluster/edit/:name", api.ClusterEditByName)
-	r.POST("/cluster/update/:name", api.ClusterUpdate)
+	r.GET("/cluster/get", api.ClusterGet)
+	r.POST("/cluster/update", api.ClusterUpdate)
 	r.POST("/cluster/add", api.ClusterAdd)
 }
