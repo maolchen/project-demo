@@ -18,7 +18,8 @@ func InitRouter() *gin.Engine {
 	InitAuthRouter(ApiGroup)
 	InitUserRouter(ApiGroup)
 	InitClusterRouter(ApiGroup)
-	InitNamespaceRouter(ApiGroup)
+	InitResourceRouter(ApiGroup)
+	//InitNamespaceRouter(ApiGroup)
 	return Router
 
 }
