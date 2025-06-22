@@ -10,7 +10,7 @@ import (
 
 func Update(ctx *gin.Context) {
 	basicInfo := models.BasicInfo{}
-	if !utils.BindQuery(ctx, &basicInfo) {
+	if !utils.BindJSON(ctx, &basicInfo) {
 		return
 	}
 
