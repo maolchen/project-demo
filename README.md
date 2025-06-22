@@ -7,59 +7,106 @@
 用户登录接口  
 打印接口请求耗时日志中间件  
 jwt认证   
-zap全局日志  
+zap全局日志   
+集群的增删改查  
+K8S ns pod deployment sts cronjob 的增删改查  
+...
 
 ### 目录结构 
 ```bash
-D:.
-│  .gitignore
-│  app.db
-│  app.log
-│  go.mod
-│  go.sum
-│  main.go
-│  README.md
-├─api    #api接口
-│      user.go
-├─conf  #配置文件示例
-│      config1.yaml
-├─config  #全局config
-│      config.go
-├─constants    #常量
-│      code.go
-│      common.go
-│      message.go
-├─database  #数据库
-│      sqlite.go
-├─initializa   #初始化
-│      initConfig.go  #初始化配置
-│      initDB.go      #初始化数据库
-│      initPrint.go   #初始打印的一些东西
-│      initRouter.go  #初始化路由
-│      initZap.go     #初始化日志
-├─middlewares      #中间件
-│      jwt.go
-│      requestTime.go
-├─models    #数据模型
-│      user.go
-├─routers   #路由
-│      login.go
-│      user.go
-├─service   #service  路由->api->service
-│      login.go
-│      user.go
-├─utils   #工具类
-│      dirExists.go
-│      jwtutils.go
-│      logutils.go
-│      strings.go
-└─validator  #用户信息校验
-        user_validator.go
+├── api
+│   ├── cluster.go  #cluster接口
+│   ├── create.go   #面向对象方式的namespace create接口，练习使用，实际未使用
+│   ├── delete.go   #面向对象方式的namespace delete接口，练习使用，实际未使用
+│   ├── get.go      #面向对象方式的namespace get接口，练习使用，实际未使用
+│   ├── list.go     #面向对象方式的namespace list接口，练习使用，实际未使用
+│   ├── resource    #接口方式的K8S resource增删改查api 接口
+│   │   ├── Create.go
+│   │   ├── Delete.go
+│   │   ├── Get.go
+│   │   ├── List.go
+│   │   └── Update.go
+│   ├── update.go   #面向对象方式的namespace update接口，练习使用，实际未使用
+│   └── user.go
+├── conf   #测试config.yaml配置文件，启动服务--config指定
+│   └── config1.yaml  
+├── config #config配置相关
+│   └── config.go
+├── constants #常量
+│   ├── code.go
+│   ├── common.go
+│   └── message.go
+├── database  #数据库
+│   └── sqlite.go
+├── go.mod
+├── go.sum
+├── initializa  #初始化
+│   ├── initCluster.go
+│   ├── initConfig.go
+│   ├── initDB.go
+│   ├── initPrint.go
+│   ├── initRouter.go
+│   └── initZap.go
+├── main.go
+├── middlewares  #中间件，jwt和trace_id日志封装
+│   ├── jwt.go
+│   └── logger.go
+├── models      #数据模型
+│   ├── basicInfo.go
+│   ├── cluster.go
+│   ├── db.go
+│   └── user.go
+├── README.md
+├── routers   #路由
+│   ├── cluster.go
+│   ├── login.go
+│   ├── namespace.go  #面向对象方式的练习路由，实际未使用
+│   ├── resource.go 
+│   └── user.go
+├── service   #服务层
+│   ├── base.go   #k8s基础通用方法
+│   ├── clusters  #K8S多集群相关逻辑
+│   │   ├── cluster.go
+│   │   ├── clusterInfo.go
+│   │   ├── utils.go
+│   │   └── wrapper.go
+│   ├── common   #通用函数
+│   │   └── newClientSet.go
+│   ├── factory  
+│   │   └── factory.go
+│   ├── interfaces.go  #定义接口
+│   ├── login.go    #登录登出逻辑
+│   ├── namespace   #练习的namespace的curd逻辑
+│   │   ├── create.go
+│   │   ├── delete.go
+│   │   ├── get.go
+│   │   ├── list.go
+│   │   └── update.go
+│   ├── resource  #K8S资源curd
+│   │   ├── cronjob.go
+│   │   ├── daemonset.go
+│   │   ├── deployment.go
+│   │   ├── namespace.go
+│   │   ├── pod.go
+│   │   └── statefulset.go
+│   └── user.go   #用户相关逻辑
+├── utils      #通用工具包
+│   ├── dirExists.go
+│   ├── jwtutils.go
+│   ├── kubeconfig_validator.go
+│   ├── logutils.go
+│   ├── request.go
+│   ├── response.go
+│   ├── strings.go
+│   └── struct2Map.go
+└── validator  #用户校验
+    └── user_validator.go
 ```
 
 
 
 ### 环境变量 
+除了使用配置文件，还可以使用环境变量配置相关启动参数
 ```shell
     "ADDRESS", ":8000"
     "DB_PATH", ".\\data\\app.db"
@@ -71,7 +118,8 @@ D:.
 	"LOG_CONF_COMPRESS", true
 	"LOG_CONF_LOG_LEVEL", "debug"
 	"LOG_CONF_LOG_TYPE", "text"
-	"JWT_EXPIRES", 30
+	"JWT_EXPIRES", 30  #token过期时间，分钟
 ```
 	
-
+### TODO
+练习项目，多次修改结构，结构可能也还有不合理的地方，早期写的用户api和登录登出api的返回数据需要优化，status返回的是string类型，和cluster和resource的返回不一致。
