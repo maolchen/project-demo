@@ -93,3 +93,35 @@ func (d *DaemonSetService) List(basicInfo *models.BasicInfo) (interface{}, error
 	zap.S().Infof("列出 DaemonSet 成功！共 %d 个", len(list.Items))
 	return list.Items, nil
 }
+
+// Restart 重启指定 Namespace 下的 DaemonSet
+func (d *DaemonSetService) Restart(basicInfo *models.BasicInfo) error {
+	name := basicInfo.Name
+	namespace := basicInfo.Namespace
+	daemonSet, err := d.Clientset.AppsV1().DaemonSets(namespace).Get(context.TODO(), name, metav1.GetOptions{})
+	if err != nil {
+		zap.S().Errorf("获取 DaemonSet 详情失败：%s----->%s", name, err.Error())
+		return err
+	}
+
+	// 增加版本号以触发滚动更新
+	if daemonSet.Spec.Template.Annotations == nil {
+		daemonSet.Spec.Template.Annotations = make(map[string]string)
+	}
+	currentVersion := daemonSet.Spec.Template.Annotations["restart-version"]
+	newVersion := currentVersion
+	if newVersion == "" {
+		newVersion = "1"
+	} else {
+		newVersion = string(currentVersion[0] + 1)
+	}
+	daemonSet.Spec.Template.Annotations["restart-version"] = newVersion
+
+	_, err = d.Clientset.AppsV1().DaemonSets(namespace).Update(context.TODO(), daemonSet, metav1.UpdateOptions{})
+	if err != nil {
+		zap.S().Errorf("重启 DaemonSet 失败：%s----->%s", name, err.Error())
+		return err
+	}
+	zap.S().Infof("重启 DaemonSet %s 成功!!!", name)
+	return nil
+}

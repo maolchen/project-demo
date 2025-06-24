@@ -93,3 +93,16 @@ func (p *PodService) List(basicInfo *models.BasicInfo) (interface{}, error) {
 	zap.S().Infof("列出 Pod 成功！共 %d 个", len(list.Items))
 	return list.Items, nil
 }
+
+// Restart 重启指定 Namespace 下的 Pod
+func (p *PodService) Restart(basicInfo *models.BasicInfo) error {
+	name := basicInfo.Name
+	namespace := basicInfo.Namespace
+	err := p.Clientset.CoreV1().Pods(namespace).Delete(context.TODO(), name, metav1.DeleteOptions{})
+	if err != nil {
+		zap.S().Errorf("重启 Pod 失败：%s----->%s", name, err.Error())
+		return err
+	}
+	zap.S().Infof("重启 Pod %s 成功!!!", name)
+	return nil
+}

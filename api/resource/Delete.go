@@ -28,5 +28,5 @@ func Delete(ctx *gin.Context) {
 		utils.Error(http.StatusInternalServerError, "删除"+resourceType+"资源失败："+err.Error()).Send(ctx)
 		return
 	}
-	utils.SuccessNoData("删除" + resourceType + "资源成功").Send(ctx)
+	utils.SuccessNoData("删除" + resourceType + ":" + basicInfo.Name + "资源成功").Send(ctx)
 }

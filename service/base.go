@@ -36,3 +36,18 @@ func (b *BaseResource) GetName(basicInfo *models.BasicInfo) string {
 func (b *BaseResource) GetNamespace(basicInfo *models.BasicInfo) string {
 	return basicInfo.Namespace
 }
+
+// Restart 重启资源（默认实现为空）
+func (b *BaseResource) Restart(basicInfo *models.BasicInfo) error {
+	return nil
+}
+
+// rollback 回滚资源，默认实现为空
+func (b *BaseResource) Rollback(req *models.RollbackRequest) error {
+	return nil
+}
+
+// listRevisions 查询历史版本，默认实现为空
+func (b *BaseResource) ListRevisions(basicInfo *models.BasicInfo) (interface{}, error) {
+	return nil, nil
+}

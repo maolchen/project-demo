@@ -13,6 +13,7 @@ func BindJSON(ctx *gin.Context, obj interface{}) bool {
 		zap.S().Errorf("解析参数失败---->%s", err.Error())
 		return false
 	}
+	//fmt.Println(obj)
 	return true
 }
 

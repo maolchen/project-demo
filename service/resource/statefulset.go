@@ -93,3 +93,35 @@ func (s *StatefulSetService) List(basicInfo *models.BasicInfo) (interface{}, err
 	zap.S().Infof("列出 StatefulSet 成功！共 %d 个", len(list.Items))
 	return list.Items, nil
 }
+
+// Restart 重启指定 Namespace 下的 StatefulSet
+func (s *StatefulSetService) Restart(basicInfo *models.BasicInfo) error {
+	name := basicInfo.Name
+	namespace := basicInfo.Namespace
+	statefulSet, err := s.Clientset.AppsV1().StatefulSets(namespace).Get(context.TODO(), name, metav1.GetOptions{})
+	if err != nil {
+		zap.S().Errorf("获取 StatefulSet 详情失败：%s----->%s", name, err.Error())
+		return err
+	}
+
+	// 增加版本号以触发滚动更新
+	if statefulSet.Spec.Template.Annotations == nil {
+		statefulSet.Spec.Template.Annotations = make(map[string]string)
+	}
+	currentVersion := statefulSet.Spec.Template.Annotations["restart-version"]
+	newVersion := currentVersion
+	if newVersion == "" {
+		newVersion = "1"
+	} else {
+		newVersion = string(currentVersion[0] + 1)
+	}
+	statefulSet.Spec.Template.Annotations["restart-version"] = newVersion
+
+	_, err = s.Clientset.AppsV1().StatefulSets(namespace).Update(context.TODO(), statefulSet, metav1.UpdateOptions{})
+	if err != nil {
+		zap.S().Errorf("重启 StatefulSet 失败：%s----->%s", name, err.Error())
+		return err
+	}
+	zap.S().Infof("重启 StatefulSet %s 成功!!!", name)
+	return nil
+}
